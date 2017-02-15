@@ -8,9 +8,9 @@ import org.easymock.EasyMock;
 import pl.lodz.uni.math.DaoFactorMaven.Person.Person;
 
 public class DaoXML implements IDaoFactor {
-	private static DaoXML instance = null;
+	private static IDaoFactor instance = null;
 
-	public static DaoXML getInstance() {
+	public static IDaoFactor getInstance() {
 		if (instance == null) {
 			instance = new DaoXML();
 		}
@@ -18,7 +18,7 @@ public class DaoXML implements IDaoFactor {
 	}
 
 	private DaoXML() {
-
+		
 	}
 
 	// @Override
@@ -31,5 +31,6 @@ public class DaoXML implements IDaoFactor {
 	public List<Person> selectAllUsers() {
 		return new ArrayList<Person>();
 	}
+
 
 }

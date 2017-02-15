@@ -6,6 +6,8 @@ import pl.lodz.uni.math.DaoFactorMaven.Person.Person;
 
 public interface IDaoFactor {
 	public Person getPersonById(int value);
+	
+	//public void setSource(EDaoFactory value);
 
 	public List<Person> selectAllUsers();
 }

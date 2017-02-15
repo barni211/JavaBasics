@@ -8,14 +8,14 @@ import org.easymock.EasyMock;
 import pl.lodz.uni.math.DaoFactorMaven.Person.Person;
 
 public class DaoDB implements IDaoFactor {
-	private static DaoDB instance = null;
+	private static IDaoFactor instance = new DaoDB();
 
 	private DaoDB() {
 	}
 
-	public static DaoDB getInstance() {
-		if (instance == null)
-			instance = new DaoDB();
+	public static IDaoFactor getInstance() {
+		//if (instance == null)
+			//instance = new DaoDB();
 		return instance;
 	}
 

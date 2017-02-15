@@ -7,7 +7,9 @@ import java.util.Map;
 import pl.lodz.uni.math.DaoFactorMaven.Person.Person;
 
 public class DaoFactor implements IDaoFactor {
-	private static IDaoFactor dao = new DaoFactor();
+	private static DaoFactor dao = new DaoFactor();
+	private static IDaoFactor source;
+	
 	Map<EDaoFactory, IDaoFactor> types = new HashMap<EDaoFactory, IDaoFactor>();
 	{
 		types.put(EDaoFactory.DB, DaoDB.getInstance());
@@ -19,16 +21,16 @@ public class DaoFactor implements IDaoFactor {
 	}
 
 	public static DaoFactor getInstance() {
-		return (DaoFactor) dao;
+		return dao;
 	}
 
 	public void setSource(EDaoFactory value) {
-		this.dao = types.get(value);
+		this.source = types.get(value);
 	}
 
 	// @Override
 	public Person getPersonById(int value) {
-		return dao.getPersonById(value);// throw new
+		return source.getPersonById(value);// throw new
 										// UnsupportedOperationException("Not
 										// supported yet."); //To change body of
 										// generated methods, choose Tools |
@@ -37,7 +39,7 @@ public class DaoFactor implements IDaoFactor {
 
 	// @Override
 	public List<Person> selectAllUsers() {
-		return dao.selectAllUsers();
+		return source.selectAllUsers();
 	}
 
 }

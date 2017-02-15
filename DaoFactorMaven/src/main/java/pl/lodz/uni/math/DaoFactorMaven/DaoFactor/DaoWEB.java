@@ -8,12 +8,13 @@ import org.easymock.EasyMock;
 import pl.lodz.uni.math.DaoFactorMaven.Person.Person;
 
 public class DaoWEB implements IDaoFactor {
-	private static DaoWEB instance = null;
+	private static IDaoFactor instance = null;
 
 	private DaoWEB() {
+		
 	}
 
-	public static DaoWEB getInstance() {
+	public static IDaoFactor getInstance() {
 		if (instance == null)
 			instance = new DaoWEB();
 		return instance;
